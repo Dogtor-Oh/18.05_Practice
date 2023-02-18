@@ -1,6 +1,6 @@
 #R_Tutorial - Edited on Feb 18, 2023; By OH
 
-# Vectors & Matrices # 
+# Vectors & Matrices # ....................[1]  
 # Basic Operations (+,-,*,/,^)
 2+3
 2*3
@@ -13,7 +13,7 @@ x <- 2+3
 y <- 5
 x*y
 
-# Vectors ....................[1]  
+# Vectors
 c(1, 2, 3, 4)
 x <- c(1,2,3,4)
 1:4
@@ -46,7 +46,7 @@ x <- exp(1:2)
 sum (x)
 mean (x)
 
-# Matrices ....................[2]
+# Matrices
 x <- 1:10
 y <- matrix (x, nrow = 2, ncol = 5)
 y
@@ -66,6 +66,43 @@ colSums(y)
 rowMeans(y)
 colMeans(y)
 
-# Random Trials # 
-# Random Numbers ....................[3] 
+# Random Trials # ....................[2] 
+# Random Permutation 
+x <- 1:5
+x
+sample (x, 3) # sample 3 of the elements of x 
+sample (x, 3, replace = TRUE) # sample 3 of the elements of x, w/ replacement
+sample (x, 10, replace = TRUE)
 
+x <- 1:6
+y <- sample (x, 10, replace = TRUE) # roll a dice!
+z <- matrix(y, nrow = 2, ncol= 5) # 2 rolls in 5 trials
+
+x <- sample (1:6, 3, replace = TRUE)
+x
+x == 6
+x < 6
+
+x <- sample (1:6, 1000, replace = TRUE) 
+sum (x == 6) # Is it 6?
+
+x <- matrix(sample(1:6, 40, replace = TRUE), nrow = 4)
+x
+y <- (x == 6)
+y
+z <- colSums(y) # the number of trials yielded a 6!
+z
+mean(z)
+
+x <- matrix(sample(1:6, 4*1000, replace = TRUE), nrow = 4) 
+y <- x == 6 
+z <- colSums(y)
+mean(z)
+sum(z > 0)/length(z) # rolling 4 dices, 1000 trials, at least one 6, prob
+
+dim(y) # dimension 
+
+
+x <- matrix(sample(1:6, 2*1000, replace = TRUE), nrow = 2)
+y <- colSums(x) == 7 
+mean(y)
