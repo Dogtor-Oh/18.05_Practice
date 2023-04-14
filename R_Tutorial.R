@@ -161,3 +161,5 @@ for (j in 1:ntrials)
 }  
 mean(trials) # fraction that are 1's 
 
+
+#Test 4.15.
